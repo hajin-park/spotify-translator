@@ -6,8 +6,8 @@ from utils.translate import translate
 
 
 def main():
-    url      = input("Enter track/playlist/album URL: ")
-    songs    = []
+    url = input("Enter track/playlist/album URL: ")
+    songs = []
 
     try:
         if url.find("track") != -1:
@@ -20,11 +20,11 @@ def main():
         raise ValueError("Invalid URL")
 
     for song in songs:
-        print(f"Downloading track: {song.name}\n")
         download_one(song)
-        print(f"Translating track: {song.name}\n")
-        translation = translate(f"audio/{song.name}.mp3", "kr", "en")
-        print(f"Result:\n{translation}\n\n")
+        print(f"\nTranslating track: {song['name']}\n")
+        results = translate(f"audio/{song['name']}.mp3", "Korean")
+        print(f"Transcription:\n{results[0]}\n")
+        print(f"Translation:\n{results[1]}\n")
 
 if __name__ == "__main__":
     main()
