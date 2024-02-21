@@ -1,6 +1,6 @@
-'''
+"""
 Download songs from youtube
-'''
+"""
 
 import os
 import urllib
@@ -11,7 +11,6 @@ from mutagen.id3 import APIC, ID3
 from mutagen.mp3 import MP3
 from spotify_dl import youtube as yt
 from spotify_dl.utils import sanitize
-
 
 
 def modified_filename(**kwargs):
@@ -26,12 +25,15 @@ def download_one(song):
         "urls": [
             {
                 "save_path": Path("audio\\"),
-                "songs": [
-                    song
-                ],
+                "songs": [song],
             }
         ]
     }
+
+    if sanitize(f"{song['name']}", "#") in os.listdir("..\\audio"):
+        print(f"Skipping {song['name']} as it already exists")
+        return
+
     yt.download_songs(
         songs=songs,
         output_dir=f"{os.path.dirname(os.path.realpath(__file__))}\\..",
