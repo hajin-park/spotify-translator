@@ -22,9 +22,10 @@ def main():
     for song in songs:
         download_one(song)
         print(f"\nTranslating track: {song['name']}\n")
-        results = translate(f"audio/{song['name']}.mp3", "Korean")
+        results = translate(song["name"], "Korean")
         print(f"Transcription:\n{results[0]}\n")
         print(f"Translation:\n{results[1]}\n")
+
 
 if __name__ == "__main__":
     main()

@@ -30,7 +30,10 @@ def download_one(song):
         ]
     }
 
-    if sanitize(f"{song['name']}", "#") in os.listdir("..\\audio"):
+    if (
+        sanitize(f"{song['name']}", "#")
+        in f"{os.path.dirname(os.path.realpath(__file__))}\\..\\audio"
+    ):
         print(f"Skipping {song['name']} as it already exists")
         return
 
