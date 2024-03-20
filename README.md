@@ -5,14 +5,20 @@ A simple [OpenAI Whisper](https://github.com/openai/whisper) and
 and transcribes lyrics of Spotify songs.
 
 To install:
-`pip3 install spotify-translator`
+```
+pip3 install spotify-translator
+```
 
 For Spotify ClientID:
-`export SPOTIPY_CLIENT_ID=your-spotify-client-id
- export SPOTIPY_CLIENT_SECRET=your-spotify-client-secret`
+```
+export SPOTIPY_CLIENT_ID=your-spotify-client-id
+export SPOTIPY_CLIENT_SECRET=your-spotify-client-secret
+```
 
- To run:
- `spotify_translator --url LINKHERE -d`
+To run:
+```
+spotify_translator --url LINKHERE -d
+```
 
 `-d` is optional, its just for downloading files. 
  
