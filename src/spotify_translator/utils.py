@@ -1,8 +1,17 @@
-"""
-Handle translation and transcription of audio files
-"""
-
+from spotify_dl.spotify import (
+    fetch_tracks,
+    parse_spotify_url,
+    get_item_name,
+    validate_spotify_urls,
+)
+from spotify_dl.scaffold import get_tokens
+from spotify_dl import youtube as yt
+from spotipy.oauth2 import SpotifyClientCredentials
+from pathlib import Path
+import os
+import sys
 import whisper
+import spotipy
 
 
 def translate(file, from_lang):
@@ -24,3 +33,18 @@ def translate(file, from_lang):
         f.write(f"Transcription:\n{transcription}\n\nTranslation:\n{translation}")
 
     return transcription, translation
+
+
+def spotify_auth():
+    # test client ids, b64 for just to deter.
+    tokens = get_tokens()
+    if tokens is None:
+        sys.exit(1)
+    client_id, client_secret = tokens
+
+    sp = spotipy.Spotify(
+        auth_manager=SpotifyClientCredentials(
+            client_id=client_id, client_secret=client_secret
+        )
+    )
+    return sp
