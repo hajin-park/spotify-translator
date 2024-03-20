@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "Spotify-Translator"
+name = "spotify-translator"
 version = "0.0.1"
 authors = [
   { name="Hajin Park", email="hajin1819@gmail.com" },
@@ -20,7 +20,7 @@ classifiers = [
 ]
 dependencies = [
   "openai-whisper",
-  "spotify-dl",
+  "spotify_dl",
   "spotipy"
 ]
 license = {file = "LICENSE"}
@@ -29,3 +29,6 @@ keywords = ["spotify", "translate", "translator", "translation", "transcript", "
 [project.urls]
 Homepage = "https://github.com/hajin-park/spotify-translator"
 Issues = "https://github.com/hajin-park/spotify-translator/issues"
+
+[project.scripts]
+spotify_translator = "spotify_translator.spotify_translator:spotify_translator"
