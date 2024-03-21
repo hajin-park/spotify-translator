@@ -4,6 +4,7 @@ A simple [OpenAI Whisper](https://github.com/openai/whisper) and
 [Spotify-DL](https://github.com/SathyaBhat/spotify-dl) wrapper that translates
 and transcribes lyrics of Spotify songs.
 
+## Installation
 To install:
 ```
 pip3 install spotify-translator
@@ -22,4 +23,6 @@ spotify_translator --url LINKHERE -d
 
 `-d` is optional, its just for downloading files. 
  
- `
+ ## Usage
+
+## Optional Arguments
